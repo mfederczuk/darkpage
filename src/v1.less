@@ -30,6 +30,16 @@
 	color: @foreground-color;
 	line-height: 1.5;
 }
+.darkpage::selection,
+.darkpage ::selection {
+	background: @foreground-color;
+	color: @background-color;
+}
+.darkpage::-moz-selection,
+.darkpage ::-moz-selection {
+	background: @foreground-color;
+	color: @background-color;
+}
 
 @heading-increment: 0.2rem;
 h1.darkpage,
