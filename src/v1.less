@@ -116,6 +116,8 @@ a.darkpage:active::-moz-selection,
 @code-border-radius: 3px;
 @code-border-width: 1px;
 
+@codeblock-horizontal-margin: 40px;
+
 code.darkpage,
 .darkpage code {
 	padding: 1px;
@@ -162,7 +164,7 @@ pre.darkpage,
 	-o-border-radius: $border-radius;
 	border-style: solid;
 	border-width: @code-border-width;
-	margin-left: 40px;
+	margin-left: @codeblock-horizontal-margin;
 	padding: 1.15rem;
 }
 pre.darkpage::selection,
