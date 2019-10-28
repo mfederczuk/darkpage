@@ -109,3 +109,87 @@ a.darkpage:active::-moz-selection,
 .darkpage a:active::-moz-selection { background: @link-action-color; }
 
 //#endregion
+//#region inline code & codeblocks ========================================== //
+
+@code-background-color: #070707;
+@code-border-color: #1F1F1F;
+@code-border-radius: 3px;
+@code-border-width: 1px;
+
+code.darkpage,
+.darkpage code {
+	padding: 1px;
+}
+
+code.darkpage.code-bg,
+.darkpage code.code-bg,
+.code-bg code.darkpage,
+.darkpage.code-bg code {
+	background-color: @code-background-color;
+	border-color: @code-border-color;
+	border-radius: @code-border-radius;
+	-webkit-border-radius: $border-radius;
+	-moz-border-radius: $border-radius;
+	-ms-border-radius: $border-radius;
+	-o-border-radius: $border-radius;
+	border-style: solid;
+	border-width: @code-border-width;
+	padding: 3px;
+}
+code.darkpage.code-bg::selection,
+.darkpage code.code-bg::selection,
+.code-bg code.darkpage::selection,
+.darkpage.code-bg code::selection {
+	background-color: @foreground-color;
+	color: @code-background-color;
+}
+code.darkpage.code-bg::-moz-selection,
+.darkpage code.code-bg::-moz-selection,
+.code-bg code.darkpage::-moz-selection,
+.darkpage.code-bg code::-moz-selection {
+	background-color: @foreground-color;
+	color: @code-background-color;
+}
+
+pre.darkpage,
+.darkpage pre {
+	background-color: @code-background-color;
+	border-color: @code-border-color;
+	border-radius: @code-border-radius;
+	-webkit-border-radius: $border-radius;
+	-moz-border-radius: $border-radius;
+	-ms-border-radius: $border-radius;
+	-o-border-radius: $border-radius;
+	border-style: solid;
+	border-width: @code-border-width;
+	margin-left: 40px;
+	padding: 1.15rem;
+}
+pre.darkpage::selection,
+.darkpage pre::selection {
+	background-color: @foreground-color;
+	color: @code-background-color;
+}
+pre.darkpage::-moz-selection,
+.darkpage pre::-moz-selection {
+	background-color: @foreground-color;
+	color: @code-background-color;
+}
+
+pre.darkpage code,
+.darkpage pre code {
+	background-color: @code-background-color;
+	padding: 0;
+}
+pre.darkpage code::selection,
+.darkpage pre code::selection {
+	background-color: @foreground-color;
+	color: @code-background-color;
+}
+pre.darkpage code::-moz-selection,
+.darkpage pre code::-moz-selection {
+	background-color: @foreground-color;
+	color: @code-background-color;
+}
+
+//#endregion
