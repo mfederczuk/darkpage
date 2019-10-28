@@ -21,7 +21,7 @@
  * Author: Michael Federczuk <federczuk.michael@protonmail.com>
  */
 
-// === generic styles ======================================================= //
+//#region generic styles ==================================================== //
 
 @background-color: #0F0F0F;
 @foreground-color: #7F7F7F;
@@ -43,7 +43,8 @@
 	color: @background-color;
 }
 
-// === headings ============================================================= //
+//#endregion
+//#region headings ========================================================== //
 
 @heading-increment: 0.2rem;
 
@@ -73,7 +74,8 @@ h6.darkpage,
 	font-size: 1rem + (@heading-increment * 1);
 }
 
-// === links/anchors ======================================================== //
+//#endregion
+//#region links/anchors ===================================================== //
 
 @link-idle-color: #7F7FFF;
 @link-action-color: #5F5FFF;
@@ -105,3 +107,5 @@ a.darkpage:hover::-moz-selection,
 .darkpage a:hover::-moz-selection,
 a.darkpage:active::-moz-selection,
 .darkpage a:active::-moz-selection { background: @link-action-color; }
+
+//#endregion
