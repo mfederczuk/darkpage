@@ -71,3 +71,36 @@ h6.darkpage,
 .darkpage h6 {
 	font-size: 1rem + (@heading-increment * 1);
 }
+
+// === links/anchors ======================================================== //
+
+@link-idle-color: #7F7FFF;
+@link-action-color: #5F5FFF;
+
+a.darkpage:link, a.darkpage:visited,
+.darkpage a:link, .darkpage a:visited {
+	color: @link-idle-color;
+	text-decoration: underline;
+}
+a.darkpage:link::selection,
+.darkpage a:link::selection,
+a.darkpage:visited::selection,
+.darkpage a:visited::selection      { background: @link-idle-color; }
+a.darkpage:link::-moz-selection,
+.darkpage a:link::-moz-selection,
+a.darkpage:visited::-moz-selection,
+.darkpage a:visited::-moz-selection { background: @link-idle-color; }
+
+a.darkpage:hover, a.darkpage:active,
+.darkpage a:hover, .darkpage a:active {
+	color: @link-action-color;
+	text-decoration: none;
+}
+a.darkpage:hover::selection,
+.darkpage a:hover::selection,
+a.darkpage:active::selection,
+.darkpage a:active::selection      { background: @link-action-color; }
+a.darkpage:hover::-moz-selection,
+.darkpage a:hover::-moz-selection,
+a.darkpage:active::-moz-selection,
+.darkpage a:active::-moz-selection { background: @link-action-color; }
