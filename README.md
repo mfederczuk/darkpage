@@ -7,7 +7,7 @@
 
 ## About ##
 
-**Darkpage** is a generic dark themed **CSS** stylesheet.
+**Darkpage** is a dark themed **CSS** stylesheet that is easy to include and use.
 
 ## Contributing ##
 
