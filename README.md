@@ -41,6 +41,16 @@ wget -O 'darkpage.min.css' 'https://mfederczuk.github.io/darkpage/v1.min.css'
 <link rel="stylesheet" type="text/css" href="./darkpage.min.css">
 ```
 
+## Usage ##
+
+All elements and their children with the class `darkpage` will be targeted by
+ the stylesheet.  
+To style the entire page, just add the class to your `body` element.
+
+Inline monospace (the `code` element) will not have a background by default.  
+Add the `code-bg` class to a parent of the `code` element, or to the element
+ itself, and a background will be added to it.
+
 ## Contributing ##
 
 Read through the [Darkpage Contribution Guidelines](./CONTRIBUTING.md)
