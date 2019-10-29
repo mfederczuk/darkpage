@@ -191,18 +191,18 @@ pre.darkpage::-moz-selection,
 	color: @code-background-color;
 }
 
-pre.darkpage code,
-.darkpage pre code {
+pre.darkpage > code,
+.darkpage pre > code {
 	background-color: transparent;
 	padding: 0;
 }
-pre.darkpage code::selection,
-.darkpage pre code::selection {
+pre.darkpage > code::selection,
+.darkpage pre > code::selection {
 	background-color: @foreground-color;
 	color: @code-background-color;
 }
-pre.darkpage code::-moz-selection,
-.darkpage pre code::-moz-selection {
+pre.darkpage > code::-moz-selection,
+.darkpage pre > code::-moz-selection {
 	background-color: @foreground-color;
 	color: @code-background-color;
 }
