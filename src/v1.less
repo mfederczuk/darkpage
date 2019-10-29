@@ -117,10 +117,16 @@ code.darkpage,
 	padding: 1px;
 }
 
-code.darkpage.code-bg,
-.darkpage code.code-bg,
-.code-bg code.darkpage,
-.darkpage.code-bg code {
+                                     :not(pre) > code.darkpage.code-bg,
+                            .darkpage:not(pre) > code.code-bg,
+          .darkpage                  :not(pre) > code.code-bg,
+                             .code-bg:not(pre) > code.darkpage,
+          .code-bg                   :not(pre) > code.darkpage,
+                    .darkpage.code-bg:not(pre) > code,
+          .darkpage          .code-bg:not(pre) > code,
+          .code-bg          .darkpage:not(pre) > code,
+.darkpage .code-bg                   :not(pre) > code,
+.code-bg  .darkpage                  :not(pre) > code {
 	background-color: @code-background-color;
 	border-color: @code-border-color;
 	border-radius: @code-border-radius;
