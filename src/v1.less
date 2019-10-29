@@ -88,11 +88,15 @@ a.darkpage:link, a.darkpage:visited,
 a.darkpage:link::selection,
 .darkpage a:link::selection,
 a.darkpage:visited::selection,
-.darkpage a:visited::selection      { background: @link-idle-color; }
+.darkpage a:visited::selection      {
+	background: @link-idle-color;
+}
 a.darkpage:link::-moz-selection,
 .darkpage a:link::-moz-selection,
 a.darkpage:visited::-moz-selection,
-.darkpage a:visited::-moz-selection { background: @link-idle-color; }
+.darkpage a:visited::-moz-selection {
+	background: @link-idle-color;
+}
 
 a.darkpage:hover, a.darkpage:active,
 .darkpage a:hover, .darkpage a:active {
@@ -102,11 +106,15 @@ a.darkpage:hover, a.darkpage:active,
 a.darkpage:hover::selection,
 .darkpage a:hover::selection,
 a.darkpage:active::selection,
-.darkpage a:active::selection      { background: @link-action-color; }
+.darkpage a:active::selection {
+	background: @link-action-color;
+}
 a.darkpage:hover::-moz-selection,
 .darkpage a:hover::-moz-selection,
 a.darkpage:active::-moz-selection,
-.darkpage a:active::-moz-selection { background: @link-action-color; }
+.darkpage a:active::-moz-selection {
+	background: @link-action-color;
+}
 
 //#endregion
 //#region inline codes & codeblocks ========================================= //
