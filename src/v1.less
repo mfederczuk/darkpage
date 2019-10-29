@@ -151,8 +151,8 @@ code.darkpage,
 
 @codeblock-horizontal-margin: 40px;
 
-pre.darkpage,
-.darkpage pre {
+pre.darkpage/* :has(> code) */,
+.darkpage pre/* :has(> code) */ {
 	background-color: @code-background-color;
 	border-color: @code-border-color;
 	border-radius: @code-border-radius;
