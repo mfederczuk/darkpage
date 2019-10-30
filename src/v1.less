@@ -190,6 +190,48 @@ pre.darkpage > code,
 }
 
 //#endregion
+//#region inline quotes & blockquotes ======================================= //
+
+// inline quotes
+
+q.darkpage,
+.darkpage q {
+	font-style: italic;
+	&::before,
+	&::after {
+		content: '"';
+	}
+}
+
+// blockquotes
+
+@blockquote-background-color: #0D0D0D;
+@blockquote-border-color: #3F3F3F;
+
+blockquote.darkpage,
+.darkpage blockquote {
+	background-color: @blockquote-background-color;
+	border-color: @blockquote-border-color;
+	border-radius: 1rem;
+	-webkit-border-radius: $border-radius;
+	-moz-border-radius: $border-radius;
+	-ms-border-radius: $border-radius;
+	-o-border-radius: $border-radius;
+	border-style: dashed;
+	border-width: 1px;
+	font-style: italic;
+	padding: 8px;
+	&::selection {
+		background-color: @foreground-color;
+		color: @blockquote-background-color;
+	}
+	&::-moz-selection {
+		background-color: @foreground-color;
+		color: @blockquote-background-color;
+	}
+}
+
+//#endregion
 //#region horizontal rules ================================================== //
 
 hr.darkpage,
