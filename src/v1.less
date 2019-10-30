@@ -112,8 +112,9 @@ a.darkpage:hover, a.darkpage:active,
 
 // inline code
 
-code.darkpage,
-.darkpage code {
+          :not(pre)          > code.darkpage,
+          .darkpage:not(pre) > code,
+.darkpage :not(pre)          > code {
 	padding: 1px;
 }
 
