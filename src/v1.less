@@ -26,11 +26,20 @@
 @background-color: #0F0F0F;
 @foreground-color: #7F7F7F;
 
+@scrollbar-button-active-color: #4B4B4B;
+@scrollbar-button-color: #3F3F3F;
+@scrollbar-button-hover-color: #474747;
+@scrollbar-thumb-active-color: #333333;
+@scrollbar-thumb-color: #272727;
+@scrollbar-thumb-hover-color: #2F2F2F;
+@scrollbar-track-color: #171717;
+
 .darkpage,
 .darkpage * {
 	background-color: @background-color;
 	color: @foreground-color;
 	line-height: 1.5;
+	scrollbar-color: @scrollbar-thumb-color @scrollbar-track-color;
 	&::selection {
 		background: @foreground-color;
 		color: @background-color;
@@ -39,6 +48,32 @@
 		background: @foreground-color;
 		color: @background-color;
 	}
+}
+html.darkpage::-webkit-scrollbar-track {
+	background-color: @scrollbar-track-color;
+}
+html.darkpage::-webkit-scrollbar-thumb {
+	background-color: @scrollbar-thumb-color;
+	&:hover {
+		background-color: @scrollbar-thumb-hover-color;
+	}
+	&:active {
+		background-color: @scrollbar-thumb-active-color;
+	}
+}
+html.darkpage::-webkit-scrollbar-button {
+	background-color: @scrollbar-button-color;
+	&:hover {
+		background-color: @scrollbar-button-hover-color;
+	}
+	&:active {
+		background-color: @scrollbar-button-active-color;
+	}
+}
+html.darkpage::-webkit-scrollbar {
+	// we need a dummy attribute here so that this rule gets generated
+	// not having this rule will not style the scrollbar for some reason
+	--x: 0;
 }
 
 //#endregion
