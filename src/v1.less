@@ -307,71 +307,61 @@ button.darkpage,
 @button-shadow-x-offset: 3px;
 @button-shadow-y-offset: @button-shadow-x-offset;
 
-input[type="button"].darkpage,
-.darkpage input[type="button"],
-input[type="reset"].darkpage,
-.darkpage input[type="reset"],
-input[type="submit"].darkpage,
-.darkpage input[type="submit"],
-button.darkpage,
-.darkpage button {
-	@input-border();
-	background-color: #171717;
-	box-shadow: @button-shadow-x-offset
-	            @button-shadow-y-offset
-	            @button-shadow-blur-radius
-	            @button-shadow-color;
-	padding: @box-input-vertical-text-padding 12px;
-	&:hover {
-		background-color: #131313;
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+button {
+	&.darkpage,
+	.darkpage & {
+		@input-border();
+		background-color: #171717;
+		box-shadow: @button-shadow-x-offset
+		            @button-shadow-y-offset
+		            @button-shadow-blur-radius
+		            @button-shadow-color;
+		padding: @box-input-vertical-text-padding 12px;
+		&:hover {
+			background-color: #131313;
+		}
+		&:active {
+			background-color: @box-input-pressed-in-color;
+			box-shadow: inset
+			            @button-shadow-x-offset
+			            @button-shadow-y-offset
+			            @button-shadow-blur-radius
+			            @button-shadow-color;
+		}
 	}
-	&:active {
+}
+
+// textbox fields
+
+input[type="date"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"] {
+	&.darkpage,
+	.darkpage & {
+		@input-border();
 		background-color: @box-input-pressed-in-color;
 		box-shadow: inset
 		            @button-shadow-x-offset
 		            @button-shadow-y-offset
 		            @button-shadow-blur-radius
 		            @button-shadow-color;
-	}
-}
-
-// textbox fields
-
-input[type="date"].darkpage,
-.darkpage input[type="date"],
-input[type="datetime-local"].darkpage,
-.darkpage input[type="datetime-local"],
-input[type="email"].darkpage,
-.darkpage input[type="email"],
-input[type="month"].darkpage,
-.darkpage input[type="month"],
-input[type="number"].darkpage,
-.darkpage input[type="number"],
-input[type="password"].darkpage,
-.darkpage input[type="password"],
-input[type="search"].darkpage,
-.darkpage input[type="search"],
-input[type="tel"].darkpage,
-.darkpage input[type="tel"],
-input[type="text"].darkpage,
-.darkpage input[type="text"],
-input[type="time"].darkpage,
-.darkpage input[type="time"],
-input[type="url"].darkpage,
-.darkpage input[type="url"],
-input[type="week"].darkpage,
-.darkpage input[type="week"] {
-	@input-border();
-	background-color: @box-input-pressed-in-color;
-	box-shadow: inset
-	            @button-shadow-x-offset
-	            @button-shadow-y-offset
-	            @button-shadow-blur-radius
-	            @button-shadow-color;
-	padding: @box-input-vertical-text-padding 6px;
-	width: 16rem;
-	&:hover, &:focus {
-		background-color: #070707;
+		padding: @box-input-vertical-text-padding 6px;
+		width: 16rem;
+		&:hover, &:focus {
+			background-color: #070707;
+		}
 	}
 }
 
