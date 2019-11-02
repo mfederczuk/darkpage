@@ -45,7 +45,9 @@ wget -O 'darkpage.min.css' 'https://mfederczuk.github.io/darkpage/v1.min.css'
 
 All elements and their children with the class `darkpage` will be targeted by
  the stylesheet.  
-To style the entire page, just add the class to your `body` element.
+To style the entire page, just add the class to your `body` element.  
+If you also want to have the scrollbar be styled you need to add the class to
+ the `html` element.
 
 Inline monospace (the `code` element) will not have a background by default.  
 Add the `code-bg` class to a parent of the `code` element, or to the element
