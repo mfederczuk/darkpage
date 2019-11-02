@@ -294,6 +294,7 @@ button.darkpage,
 }
 
 @box-input-pressed-in-color: #0B0B0B;
+@box-input-vertical-text-padding: 1.25px;
 @input-border: {
 	border-color: #3F3F3F;
 	border-radius: 6px;
@@ -320,7 +321,7 @@ button.darkpage,
 	            @button-shadow-y-offset
 	            @button-shadow-blur-radius
 	            @button-shadow-color;
-	padding: 1.25px 12px;
+	padding: @box-input-vertical-text-padding 12px;
 	&:hover {
 		background-color: #131313;
 	}
