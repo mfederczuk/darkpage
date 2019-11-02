@@ -295,6 +295,17 @@ button.darkpage,
 
 @box-input-pressed-in-color: #0B0B0B;
 @box-input-vertical-text-padding: 1.25px;
+@field-input: {
+	background-color: @box-input-pressed-in-color;
+	box-shadow: inset
+	            @button-shadow-x-offset
+	            @button-shadow-y-offset
+	            @button-shadow-blur-radius
+	            @button-shadow-color;
+	&:hover, &:focus {
+		background-color: #070707;
+	}
+}
 @input-border: {
 	border-color: #3F3F3F;
 	border-radius: 6px;
@@ -350,18 +361,10 @@ input[type="url"],
 input[type="week"] {
 	&.darkpage,
 	.darkpage & {
+		@field-input();
 		@input-border();
-		background-color: @box-input-pressed-in-color;
-		box-shadow: inset
-		            @button-shadow-x-offset
-		            @button-shadow-y-offset
-		            @button-shadow-blur-radius
-		            @button-shadow-color;
 		padding: @box-input-vertical-text-padding 6px;
 		width: 16rem;
-		&:hover, &:focus {
-			background-color: #070707;
-		}
 	}
 }
 
