@@ -293,6 +293,7 @@ button.darkpage,
 	padding: 1px;
 }
 
+@box-input-pressed-in-color: #0B0B0B;
 @input-border: {
 	border-color: #3F3F3F;
 	border-radius: 6px;
@@ -324,7 +325,7 @@ button.darkpage,
 		background-color: #131313;
 	}
 	&:active {
-		background-color: #0B0B0B;
+		background-color: @box-input-pressed-in-color;
 		box-shadow: inset
 		            @button-shadow-x-offset
 		            @button-shadow-y-offset
