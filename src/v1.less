@@ -368,4 +368,15 @@ input[type="week"] {
 	}
 }
 
+// other inputs
+
+input[type="color"].darkpage,
+.darkpage input[type="color"] {
+	@field-input();
+	@input-border();
+	height: $width / 2;
+	padding: 3px;
+	width: 4.5rem;
+}
+
 //#endregion
