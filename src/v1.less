@@ -144,6 +144,9 @@ a.darkpage:hover, a.darkpage:active,
 @code-border-color: #1F1F1F;
 @code-border-radius: 3px;
 @code-border-width: 1px;
+@code-background-box-shadow: {
+	box-shadow: inset 2px 2px 2px #000000BF;
+}
 
 // inline codes
 
@@ -163,6 +166,7 @@ a.darkpage:hover, a.darkpage:active,
           .code-bg          .darkpage:not(pre) > code,
 .darkpage .code-bg                   :not(pre) > code,
 .code-bg  .darkpage                  :not(pre) > code {
+	@code-background-box-shadow();
 	background-color: @code-background-color;
 	border-color: @code-border-color;
 	border-radius: @code-border-radius;
@@ -189,6 +193,7 @@ a.darkpage:hover, a.darkpage:active,
 
 pre.darkpage/* :has(> code) */,
 .darkpage pre/* :has(> code) */ {
+	@code-background-box-shadow();
 	background-color: @code-background-color;
 	border-color: @code-border-color;
 	border-radius: @code-border-radius;
