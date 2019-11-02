@@ -293,4 +293,39 @@ button.darkpage,
 	border-radius: 6px;
 }
 
+// buttons
+
+@button-shadow-blur-radius: 3px;
+@button-shadow-color: #000000BF;
+@button-shadow-x-offset: 3px;
+@button-shadow-y-offset: @button-shadow-x-offset;
+
+input[type="button"].darkpage,
+.darkpage input[type="button"],
+input[type="reset"].darkpage,
+.darkpage input[type="reset"],
+input[type="submit"].darkpage,
+.darkpage input[type="submit"],
+button.darkpage,
+.darkpage button {
+	@input-border();
+	background-color: #171717;
+	box-shadow: @button-shadow-x-offset
+	            @button-shadow-y-offset
+	            @button-shadow-blur-radius
+	            @button-shadow-color;
+	padding: 1.25px 12px;
+	&:hover {
+		background-color: #131313;
+	}
+	&:active {
+		background-color: #0B0B0B;
+		box-shadow: inset
+		            @button-shadow-x-offset
+		            @button-shadow-y-offset
+		            @button-shadow-blur-radius
+		            @button-shadow-color;
+	}
+}
+
 //#endregion
