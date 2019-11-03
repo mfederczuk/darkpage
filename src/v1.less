@@ -1,0 +1,420 @@
+/*!
+ * Dark themed CSS stylesheet.
+ * Copyright (C) 2019 Michael Federczuk
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ * ---
+ *
+ * Version: 2019-11-03 v1.0.0
+ * Author: Michael Federczuk <federczuk.michael@protonmail.com>
+ */
+
+//#region generic styles ==================================================== //
+
+@background-color: #0F0F0F;
+@foreground-color: #7F7F7F;
+
+@scrollbar-button-active-color: #4B4B4B;
+@scrollbar-button-color: #3F3F3F;
+@scrollbar-button-hover-color: #474747;
+@scrollbar-thumb-active-color: #333333;
+@scrollbar-thumb-color: #272727;
+@scrollbar-thumb-hover-color: #2F2F2F;
+@scrollbar-track-color: #171717;
+
+.darkpage,
+.darkpage * {
+	background-color: @background-color;
+	color: @foreground-color;
+	line-height: 1.5;
+	scrollbar-color: @scrollbar-thumb-color @scrollbar-track-color;
+	&::selection {
+		background: @foreground-color;
+		color: @background-color;
+	}
+	&::-moz-selection {
+		background: @foreground-color;
+		color: @background-color;
+	}
+}
+html.darkpage::-webkit-scrollbar-track {
+	background-color: @scrollbar-track-color;
+}
+html.darkpage::-webkit-scrollbar-thumb {
+	background-color: @scrollbar-thumb-color;
+	&:hover {
+		background-color: @scrollbar-thumb-hover-color;
+	}
+	&:active {
+		background-color: @scrollbar-thumb-active-color;
+	}
+}
+html.darkpage::-webkit-scrollbar-button {
+	background-color: @scrollbar-button-color;
+	&:hover {
+		background-color: @scrollbar-button-hover-color;
+	}
+	&:active {
+		background-color: @scrollbar-button-active-color;
+	}
+}
+html.darkpage::-webkit-scrollbar {
+	// we need a dummy attribute here so that this rule gets generated
+	// not having this rule will not style the scrollbar for some reason
+	--x: 0;
+}
+
+//#endregion
+//#region headings ========================================================== //
+
+@heading-font-size-base: 1em;
+@heading-font-size-increment: 0.2em;
+@heading-margin-base: 8px;
+@heading-margin-increment: 4px;
+
+h1.darkpage,
+.darkpage h1 {
+	font-size: @heading-font-size-base + (@heading-font-size-increment * 6);
+	margin-bottom: $margin-top;
+	margin-top: @heading-margin-base + (@heading-margin-increment * 6);
+}
+h2.darkpage,
+.darkpage h2 {
+	font-size: @heading-font-size-base + (@heading-font-size-increment * 5);
+	margin-bottom: $margin-top;
+	margin-top: @heading-margin-base + (@heading-margin-increment * 6);
+}
+h3.darkpage,
+.darkpage h3 {
+	font-size: @heading-font-size-base + (@heading-font-size-increment * 4);
+	margin-bottom: $margin-top;
+	margin-top: @heading-margin-base + (@heading-margin-increment * 6);
+}
+h4.darkpage,
+.darkpage h4 {
+	font-size: @heading-font-size-base + (@heading-font-size-increment * 3);
+	margin-bottom: $margin-top;
+	margin-top: @heading-margin-base + (@heading-margin-increment * 6);
+}
+h5.darkpage,
+.darkpage h5 {
+	font-size: @heading-font-size-base + (@heading-font-size-increment * 2);
+	margin-bottom: $margin-top;
+	margin-top: @heading-margin-base + (@heading-margin-increment * 6);
+}
+h6.darkpage,
+.darkpage h6 {
+	font-size: @heading-font-size-base + (@heading-font-size-increment * 1);
+	margin-bottom: $margin-top;
+	margin-top: @heading-margin-base + (@heading-margin-increment * 6);
+}
+
+//#endregion
+//#region links/anchors ===================================================== //
+
+@link-action-color: #5F5FFF;
+@link-idle-color: #7F7FFF;
+
+a.darkpage:link, a.darkpage:visited,
+.darkpage a:link, .darkpage a:visited {
+	color: @link-idle-color;
+	text-decoration: underline;
+	&::selection {
+		background: @link-idle-color;
+	}
+	&::-moz-selection {
+		background: @link-idle-color;
+	}
+}
+
+a.darkpage:hover, a.darkpage:active,
+.darkpage a:hover, .darkpage a:active {
+	color: @link-action-color;
+	text-decoration: none;
+	&::selection {
+		background: @link-action-color;
+	}
+	&::-moz-selection {
+		background: @link-action-color;
+	}
+}
+
+//#endregion
+//#region inline codes & codeblocks ========================================= //
+
+@code-background-color: #070707;
+@code-border-color: #1F1F1F;
+@code-border-radius: 3px;
+@code-border-width: 1px;
+@code-background-box-shadow: {
+	box-shadow: inset 2px 2px 2px #000000BF;
+}
+
+// inline codes
+
+          :not(pre)          > code.darkpage,
+          .darkpage:not(pre) > code,
+.darkpage :not(pre)          > code {
+	padding: 1px;
+}
+
+                                     :not(pre) > code.darkpage.code-bg,
+                            .darkpage:not(pre) > code.code-bg,
+          .darkpage                  :not(pre) > code.code-bg,
+                             .code-bg:not(pre) > code.darkpage,
+          .code-bg                   :not(pre) > code.darkpage,
+                    .darkpage.code-bg:not(pre) > code,
+          .darkpage          .code-bg:not(pre) > code,
+          .code-bg          .darkpage:not(pre) > code,
+.darkpage .code-bg                   :not(pre) > code,
+.code-bg  .darkpage                  :not(pre) > code {
+	@code-background-box-shadow();
+	background-color: @code-background-color;
+	border-color: @code-border-color;
+	border-radius: @code-border-radius;
+	-webkit-border-radius: $border-radius;
+	-moz-border-radius: $border-radius;
+	-ms-border-radius: $border-radius;
+	-o-border-radius: $border-radius;
+	border-style: solid;
+	border-width: @code-border-width;
+	padding: 3px;
+	&::selection {
+		background-color: @foreground-color;
+		color: @code-background-color;
+	}
+	&::-moz-selection {
+		background-color: @foreground-color;
+		color: @code-background-color;
+	}
+}
+
+// codeblocks
+
+@codeblock-horizontal-margin: 40px;
+
+pre.darkpage/* :has(> code) */,
+.darkpage pre/* :has(> code) */ {
+	@code-background-box-shadow();
+	background-color: @code-background-color;
+	border-color: @code-border-color;
+	border-radius: @code-border-radius;
+	-webkit-border-radius: $border-radius;
+	-moz-border-radius: $border-radius;
+	-ms-border-radius: $border-radius;
+	-o-border-radius: $border-radius;
+	border-style: solid;
+	border-width: @code-border-width;
+	margin-left: @codeblock-horizontal-margin;
+	margin-right: @codeblock-horizontal-margin;
+	padding: 1.15em;
+	&::selection {
+		background-color: @foreground-color;
+		color: @code-background-color;
+	}
+	&::-moz-selection {
+		background-color: @foreground-color;
+		color: @code-background-color;
+	}
+}
+
+pre.darkpage > code,
+.darkpage pre > code {
+	background-color: transparent;
+	&::selection {
+		background-color: @foreground-color;
+		color: @code-background-color;
+	}
+	&::-moz-selection {
+		background-color: @foreground-color;
+		color: @code-background-color;
+	}
+}
+
+//#endregion
+//#region inline quotes & blockquotes ======================================= //
+
+// inline quotes
+
+q.darkpage,
+.darkpage q {
+	font-style: italic;
+	&::before,
+	&::after {
+		content: '"';
+	}
+}
+
+// blockquotes
+
+@blockquote-background-color: #0D0D0D;
+@blockquote-border-color: #3F3F3F;
+
+blockquote.darkpage,
+.darkpage blockquote {
+	background-color: @blockquote-background-color;
+	border-color: @blockquote-border-color;
+	border-radius: 1em;
+	-webkit-border-radius: $border-radius;
+	-moz-border-radius: $border-radius;
+	-ms-border-radius: $border-radius;
+	-o-border-radius: $border-radius;
+	border-style: dashed;
+	border-width: 1px;
+	font-style: italic;
+	padding: 8px;
+	&::selection {
+		background-color: @foreground-color;
+		color: @blockquote-background-color;
+	}
+	&::-moz-selection {
+		background-color: @foreground-color;
+		color: @blockquote-background-color;
+	}
+}
+
+//#endregion
+//#region horizontal rules ================================================== //
+
+hr.darkpage,
+.darkpage hr {
+	border-style: inset none none;
+	border-width: 2px;
+	border-color: @foreground-color;
+}
+
+//#endregion
+//#region inputs ============================================================ //
+
+/*
+ * box inputs
+ * `---field inputs
+ * |   `---textbox inputs
+ * |   |   `---date input
+ * |   |   `---datetime-local input
+ * |   |   `---email input
+ * |   |   `---month input
+ * |   |   `---number input
+ * |   |   `---password input
+ * |   |   `---search input
+ * |   |   `---tel input
+ * |   |   `---text input
+ * |   |   `---time input
+ * |   |   `---url input
+ * |   |   `---week input
+ * |   `---color input
+ * `---button input
+ * `---reset input
+ * `---submit input
+ * `---button
+ */
+
+input.darkpage,
+.darkpage input,
+button.darkpage,
+.darkpage button {
+	font-size: 1em;
+	margin: 2px;
+	padding: 1px;
+}
+
+@box-input-pressed-in-color: #0B0B0B;
+@box-input-vertical-text-padding: 1.25px;
+@field-input: {
+	background-color: @box-input-pressed-in-color;
+	box-shadow: inset
+	            @button-shadow-x-offset
+	            @button-shadow-y-offset
+	            @button-shadow-blur-radius
+	            @button-shadow-color;
+	&:hover, &:focus {
+		background-color: #070707;
+	}
+}
+@input-border: {
+	border-color: #3F3F3F;
+	border-radius: 6px;
+}
+
+// buttons
+
+@button-shadow-blur-radius: 3px;
+@button-shadow-color: #000000BF;
+@button-shadow-x-offset: 3px;
+@button-shadow-y-offset: @button-shadow-x-offset;
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+button {
+	&.darkpage,
+	.darkpage & {
+		@input-border();
+		background-color: #171717;
+		box-shadow: @button-shadow-x-offset
+		            @button-shadow-y-offset
+		            @button-shadow-blur-radius
+		            @button-shadow-color;
+		padding: @box-input-vertical-text-padding 12px;
+		&:hover {
+			background-color: #131313;
+		}
+		&:active {
+			background-color: @box-input-pressed-in-color;
+			box-shadow: inset
+			            @button-shadow-x-offset
+			            @button-shadow-y-offset
+			            @button-shadow-blur-radius
+			            @button-shadow-color;
+		}
+	}
+}
+
+// textbox fields
+
+input[type="date"],
+// input[type="datetime"] will not be supported since it is deprecated
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="number"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"] {
+	&.darkpage,
+	.darkpage & {
+		@field-input();
+		@input-border();
+		padding: @box-input-vertical-text-padding 6px;
+		width: 16em;
+	}
+}
+
+// other inputs
+
+input[type="color"].darkpage,
+.darkpage input[type="color"] {
+	@field-input();
+	@input-border();
+	height: $width / 2;
+	padding: 3px;
+	width: 4.5em;
+}
+
+//#endregion

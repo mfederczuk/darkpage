@@ -1,0 +1,84 @@
+#!/bin/bash
+# -*- sh -*-
+# vim: set syntax=sh
+# code: language=shellscript
+
+if [[ "$-" == *i* ]]; then
+	echo "${BASH_SOURCE[0]}: script was called interactively" >&2
+	exit 124
+fi
+
+if (($# > 0)); then
+	echo "$0: generic usage error" >&2
+	echo "usage: $0" >&2
+	exit 2
+fi
+
+# check if the less compiler and the clean-css plugin is installed
+if ! command -v lessc >'/dev/null'; then
+	echo "$0: Less compiler (command 'lessc') not found" >&2
+	echo "Use 'sudo npm install -g less' to install the Less compiler" >&2
+	exit 48
+fi
+if ! lessc --clean-css - <<< '' >'/dev/null'; then
+	echo "$0: Less plugin 'clean-css' not installed" >&2
+	echo "Use 'sudo npm install -g less-plugin-clean-css' to install the plugin" >&2
+	exit 49
+fi
+
+readonly branch="$(git rev-parse --abbrev-ref HEAD 2>'/dev/null')"
+if [ "$branch" != 'master' ]; then
+	readonly test=true
+else
+	readonly test=false
+fi
+
+readonly rootdir="$(realpath "$(dirname "$0")")"
+readonly src='src'
+readonly srcdir="$rootdir/$src"
+readonly out="$($test && printf 'test' || printf 'docs')"
+readonly outdir="$rootdir/$out"
+readonly outext="$($test && printf 'css' || printf 'min.css')"
+
+if $test; then
+	readonly msg="Compiled file '%s' to '%s'\\n"
+else
+	readonly msg="Compiled and minified file '%s' to '%s'\\n"
+fi
+
+declare lessc_args=()
+if ! $test; then
+	lessc_args+=('--clean-css=--s1 --skip-advanced --compatibility=ie7')
+fi
+readonly lessc_args
+
+declare srcfiles=()
+for srcfile in "$srcdir/"*'.less'; do
+	srcfiles+=("$(basename "$srcfile")")
+done
+readonly srcfiles
+
+declare outfiles=()
+for srcfile in "${srcfiles[@]}"; do
+	outfiles+=("$(sed -Ee s/'^(.+?)\.less$'/"\\1.$outext"/ <<< "$srcfile")")
+done
+readonly outfiles
+
+readonly filec=${#srcfiles[@]}
+
+mkdir -p "$outdir" >'/dev/null'
+
+for ((i = 0; i < filec; ++i)); do
+	declare srcfile="${srcfiles[i]}"
+	declare outfile="${outfiles[i]}"
+	if lessc "${lessc_args[@]}" "$srcdir/$srcfile" "$outdir/$outfile"; then
+		# shellcheck disable=2059
+		printf "$msg" \
+		       "$(realpath --relative-to=. "$srcdir/$srcfile")" \
+		       "$(realpath --relative-to=. "$outdir/$outfile")"
+	else
+		printf "%s: failed to compile file '%s'\\n" \
+		       "$0" \
+		       "$(realpath --relative-to=. "$srcdir/$srcfile")"
+	fi
+done
