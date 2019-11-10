@@ -53,6 +53,9 @@ Inline monospace (the `code` element) will not have a background by default.
 Add the `code-bg` class to a parent of the `code` element, or to the element
  itself, and a background will be added to it.
 
+The class `code-margin` will add a left and right margin to the inline monospace
+ elements.
+
 ## Contributing ##
 
 Read through the [Darkpage Contribution Guidelines](./CONTRIBUTING.md)

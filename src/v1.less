@@ -17,7 +17,7 @@
  *
  * ---
  *
- * Version: 2019-11-03 v1.0.0
+ * Version: 2019-11-10 v1.1.0
  * Author: Michael Federczuk <federczuk.michael@protonmail.com>
  */
 
@@ -199,6 +199,20 @@ a.darkpage:hover, a.darkpage:active,
 		background-color: @foreground-color;
 		color: @code-background-color;
 	}
+}
+
+                                               :not(pre) > code.darkpage.code-margin,
+                                      .darkpage:not(pre) > code.code-margin,
+             .darkpage                         :not(pre) > code.code-margin,
+                                   .code-margin:not(pre) > code.darkpage,
+             .code-margin                      :not(pre) > code.darkpage,
+                          .darkpage.code-margin:not(pre) > code,
+             .darkpage             .code-margin:not(pre) > code,
+             .code-margin             .darkpage:not(pre) > code,
+.darkpage    .code-margin                      :not(pre) > code,
+.code-margin .darkpage                         :not(pre) > code {
+	margin-left: 0.5em;
+	margin-right: $margin-left;
 }
 
 // codeblocks
