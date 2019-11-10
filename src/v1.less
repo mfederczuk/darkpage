@@ -201,6 +201,20 @@ a.darkpage:hover, a.darkpage:active,
 	}
 }
 
+                                               :not(pre) > code.darkpage.code-margin,
+                                      .darkpage:not(pre) > code.code-margin,
+             .darkpage                         :not(pre) > code.code-margin,
+                                   .code-margin:not(pre) > code.darkpage,
+             .code-margin                      :not(pre) > code.darkpage,
+                          .darkpage.code-margin:not(pre) > code,
+             .darkpage             .code-margin:not(pre) > code,
+             .code-margin             .darkpage:not(pre) > code,
+.darkpage    .code-margin                      :not(pre) > code,
+.code-margin .darkpage                         :not(pre) > code {
+	margin-left: 0.5em;
+	margin-right: $margin-left;
+}
+
 // codeblocks
 
 @codeblock-horizontal-margin: 40px;
